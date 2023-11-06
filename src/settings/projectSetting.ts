@@ -14,11 +14,12 @@ import {
   HEADER_PRESET_BG_COLOR_LIST,
   APP_PRESET_COLOR_LIST,
 } from './designSetting';
+import { isDevMode } from '../utils/env';
 
 // ! You need to clear the browser cache after the change
 const setting: ProjectConfig = {
   // Whether to show the configuration button
-  showSettingButton: true,
+  showSettingButton: isDevMode(),
 
   // Whether to show the theme switch button
   showDarkModeToggle: true,
@@ -103,7 +104,7 @@ const setting: ProjectConfig = {
     // Menu mode
     mode: MenuModeEnum.INLINE,
     // Menu type
-    type: MenuTypeEnum.SIDEBAR,
+    type: MenuTypeEnum.MIX_SIDEBAR,
     // Menu theme
     theme: ThemeEnum.DARK,
     // Split menu
