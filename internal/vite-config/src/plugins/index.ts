@@ -4,10 +4,12 @@ import { type PluginOption } from 'vite';
 import purgeIcons from 'vite-plugin-purge-icons';
 
 import { createConfigPluginConfig } from './appConfig';
+import { configAutoImportPlugin } from './autoImport';
 import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
 import { configMockPlugin } from './mock';
 import { configSvgIconsPlugin } from './svgSprite';
+import { configUnpluginPlugin } from './unplugin';
 import { configVisualizerConfig } from './visualizer';
 
 interface Options {
@@ -32,6 +34,12 @@ async function createPlugins({ isBuild, enableMock, compress, enableAnalyze }: O
 
   // vite-plugin-purge-icons
   vitePlugins.push(purgeIcons());
+
+  // // unplugin
+  vitePlugins.push(configUnpluginPlugin());
+
+  // autoImport
+  vitePlugins.push(configAutoImportPlugin());
 
   // The following plugins only work in the production environment
   if (isBuild) {

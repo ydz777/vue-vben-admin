@@ -125,7 +125,7 @@
         unref(isFixedHeightPage) &&
           props.canResize &&
           warn(
-            "'canResize' of BasicTable may not work in PageWrapper with 'fixedHeight' (especially in hot updates)",
+            'BasicTable的“canReSize”可能无法在具有“FixedHeight”的PageWrapper中工作(尤其是在热更新中)',
           );
       });
 
